@@ -58,25 +58,32 @@ def parse_move(user_input: str) -> Optional[Move]:
 
 
 def display_board(board: Sequence[int]) -> str:
-    str_list = []
-    if len(board) == 1 and board[0] == 1:
-        return 'A: 🍌'
-    for i in range(len(board)):
-        if board[i] == 0:
-            str_list.append(f'{ascii_uppercase[i]}: 🕳')
+    return "\n".join(display_heaps(board))
+
+
+def display_heaps(board: Sequence[int]) -> str:
+    for i, num_items in enumerate(board):
+        if num_items == 0:
+            yield (f'{ascii_uppercase[i]}(0) : 🕳')
         else:
-            str_list.append(f'{ascii_uppercase[i]}: {"🍌" * board[i]}')
-    return "\n".join(str_list)
+            yield (f'{ascii_uppercase[i]}({num_items}){" " if num_items < 10 else ""}: {"🔥" * num_items}')
 
 
 def run():
     print(
         """
 Welcome to Nim Game!
-Don't forget: who picks the last piece, wins!
+Don't forget: who picks the last piece, WINS!
+Description:
+    NIM is a two-player turn-based game.
+    There are certain number of heaps (you'll be decidin on this as well!), each containing a certain number of items.
+    At each turn, the active player needs to decide:
+        Which heap to take from, and
+        How many items to take - note that at least 1 and at most the available number of items.
+    
 
-At each turn, player is asked to provide an input that I can understand.
-It should be in the form of: `HeapName NumberOfItemsToRemove`
+The active player is asked to provide the decision in a way I can understand.
+It should be in the form of: `HeapName NumberOfItemsToTake`
 
 Examples: `A 3`, `B 1`
 

@@ -77,24 +77,24 @@ def test_parse_random_input(s):
 
 def test_display_board_one_empty():
     board = [0]
-    assert display_board(board) == 'A: 🕳'
+    assert display_board(board) == 'A(0) : 🕳'
 
 def test_display_board_multiple_empties():
     board = [0,0,0]
     assert display_board(board) == """\
-A: 🕳
-B: 🕳
-C: 🕳"""
+A(0) : 🕳
+B(0) : 🕳
+C(0) : 🕳"""
 
 
 def test_display_board_one():
     board = [1]
-    assert display_board(board) == 'A: 🍌'
+    assert display_board(board) == 'A(1) : 🔥'
 
 def test_display_board_multiple():
     board = [0,3,2,1]
     assert display_board(board) == """\
-A: 🕳
-B: 🍌🍌🍌
-C: 🍌🍌
-D: 🍌"""
+A(0) : 🕳
+B(3) : 🔥🔥🔥
+C(2) : 🔥🔥
+D(1) : 🔥"""
