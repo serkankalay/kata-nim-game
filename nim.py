@@ -13,6 +13,9 @@ class Player(enum.Enum):
     P1 = enum.auto()
     P2 = enum.auto()
 
+class PlayingMode(enum.Enum):
+    TwoPlayers = enum.auto()
+    AgainstComputer = enum.auto()
 
 @dataclass(frozen=True)
 class State:
@@ -42,7 +45,7 @@ def other_player(player: Player) -> Player:
 
 
 def generate_board(number_of_heaps: int) -> Sequence[int]:
-    return [randint(1, 10) for _ in range(number_of_heaps)]
+    return [randint(1, 9) for _ in range(number_of_heaps)]
 
 
 def parse_move(user_input: str) -> Optional[Move]:
