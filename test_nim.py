@@ -1,4 +1,4 @@
-from nim import State, Move, apply, Player, parse_move, display_board
+from nim import State, Move, apply, Player, parse_move, display_board, generate_move
 from hypothesis.strategies import text
 from hypothesis import given
 import pytest
@@ -79,8 +79,9 @@ def test_display_board_one_empty():
     board = [0]
     assert display_board(board) == 'A(0) : 🕳'
 
+
 def test_display_board_multiple_empties():
-    board = [0,0,0]
+    board = [0, 0, 0]
     assert display_board(board) == """\
 A(0) : 🕳
 B(0) : 🕳
@@ -91,10 +92,17 @@ def test_display_board_one():
     board = [1]
     assert display_board(board) == 'A(1) : 🔥'
 
+
 def test_display_board_multiple():
-    board = [0,3,2,1]
+    board = [0, 3, 2, 1]
     assert display_board(board) == """\
 A(0) : 🕳
 B(3) : 🔥🔥🔥
 C(2) : 🔥🔥
 D(1) : 🔥"""
+
+
+def test_generate_move():
+    initial_state = State([5, 1, 9], Player.P1)
+    assert apply(initial_state, generate_move(initial_state.board)) != replace(initial_state, message="Invalid amount")
+    assert apply(initial_state, generate_move(initial_state.board)) != replace(initial_state, message="Invalid index")

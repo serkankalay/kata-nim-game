@@ -72,6 +72,13 @@ def display_heaps(board: Sequence[int]) -> str:
             yield (f'{ascii_uppercase[i]}({num_items}){" " if num_items < 10 else ""}: {"🔥" * num_items}')
 
 
+def generate_move(board: Sequence[int]) -> Move:
+    while True:
+        return None
+        # heap = randint(1, len(board))
+        # if board[heap]:
+        #      return
+
 def run():
     print(
         """
