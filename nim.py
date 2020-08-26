@@ -13,10 +13,6 @@ class Player(enum.Enum):
     P1 = enum.auto()
     P2 = enum.auto()
 
-class PlayingMode(enum.Enum):
-    TwoPlayers = enum.auto()
-    AgainstComputer = enum.auto()
-
 @dataclass(frozen=True)
 class State:
     board: Sequence[int]
