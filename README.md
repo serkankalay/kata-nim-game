@@ -19,3 +19,5 @@ It should be in the form of: `HeapName NumberOfItemsToTake`
 
 Examples: `A 3`, `B 1`
 ```
+
+![Nim Game Demo](demo/demo.gif)
