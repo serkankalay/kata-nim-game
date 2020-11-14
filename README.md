@@ -1,5 +1,5 @@
 # Nim Game
-This repository contains `python` code for kata from codingdojo.org/kata/Nim/
+This repository contains `python` code for kata from [codingdojo.org/kata/Nim/](http://codingdojo.org/kata/Nim/)
 
 For basic informations about Nim game, please refer to : https://en.wikipedia.org/wiki/Nim. As available in the code itself, we explain the game as follows:
 
